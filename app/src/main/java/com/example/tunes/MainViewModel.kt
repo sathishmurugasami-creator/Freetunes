@@ -35,7 +35,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         future.addListener({
             controller = future.get().apply {
                 addListener(object : Player.Listener {
-                    override fun onIsPlayingChanged(playing: Boolean) { isPlaying = playing }
+                    override fun onIsPlayingChanged(playing: Boolean) { this@MainViewModel.isPlaying = playing }
                     override fun onPlaybackStateChanged(state: Int) {
                         buffering = state == Player.STATE_BUFFERING
                     }
